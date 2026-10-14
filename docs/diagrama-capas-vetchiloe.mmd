@@ -1,0 +1,20 @@
+flowchart LR
+  subgraph Frontend["Frontend - React"]
+    UI["Componentes React<br/>App.jsx · TablaPacientes.jsx<br/>FormularioPaciente.jsx"]
+    Client["Servicio HTTP<br/>src/services/pacienteService.js"]
+    UI -->|acciones y props| Client
+  end
+
+  subgraph Backend["Backend - Express"]
+    Routes["Rutas<br/>pacienteRoutes.js<br/>GET / POST /api/pacientes"]
+    Controllers["Controladores<br/>pacienteController.js"]
+    Services["Servicios<br/>validacion y reglas de negocio"]
+    Repositories["Repositorios<br/>pacienteRepository.js"]
+    Routes --> Controllers
+    Controllers --> Services
+    Services --> Repositories
+  end
+
+  Memory[("Repositorio en memoria<br/>sin persistencia al reiniciar")]
+  Client -->|HTTP con JSON| Routes
+  Repositories --> Memory

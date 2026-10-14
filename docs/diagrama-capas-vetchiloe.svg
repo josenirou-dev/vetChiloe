@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 590" role="img" aria-labelledby="title description">
+  <title id="title">Arquitectura en capas de vetChiloé</title>
+  <desc id="description">Los componentes React llaman al servicio HTTP del frontend. Este se comunica con las rutas Express, que delegan en controladores, servicios y repositorios. Los datos se almacenan en memoria.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#7351a6"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .title { fill: #25213a; font-size: 28px; font-weight: 700; }
+      .subtitle { fill: #686477; font-size: 15px; }
+      .group { fill: #514077; font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+      .node-title { fill: #302743; font-size: 16px; font-weight: 700; }
+      .node-copy { fill: #5d586b; font-size: 12px; }
+      .edge-label { fill: #5e4b80; font-size: 11px; font-weight: 600; }
+      .note { fill: #686477; font-size: 13px; }
+    </style>
+  </defs>
+
+  <rect width="1480" height="590" rx="20" fill="#fbfaff"/>
+  <text x="48" y="55" class="title">vetChiloé · Arquitectura en capas</text>
+  <text x="48" y="82" class="subtitle">Flujo de pacientes desde la interfaz React hasta el almacenamiento en memoria</text>
+
+  <rect x="32" y="112" width="364" height="340" rx="18" fill="#f0ebfa" stroke="#d9cdef"/>
+  <text x="54" y="143" class="group">FRONTEND · REACT</text>
+  <rect x="414" y="112" width="1000" height="340" rx="18" fill="#f1f7fc" stroke="#d3e4f3"/>
+  <text x="436" y="143" class="group">BACKEND · EXPRESS</text>
+
+  <g>
+    <rect x="48" y="207" width="150" height="142" rx="14" fill="#fff" stroke="#cbbbe5" stroke-width="2"/>
+    <text x="123" y="245" text-anchor="middle" class="node-title">Componentes</text>
+    <text x="123" y="270" text-anchor="middle" class="node-copy">App.jsx</text>
+    <text x="123" y="290" text-anchor="middle" class="node-copy">TablaPacientes</text>
+    <text x="123" y="310" text-anchor="middle" class="node-copy">FormularioPaciente</text>
+
+    <rect x="238" y="207" width="150" height="142" rx="14" fill="#fff" stroke="#cbbbe5" stroke-width="2"/>
+    <text x="313" y="245" text-anchor="middle" class="node-title">Servicio HTTP</text>
+    <text x="313" y="274" text-anchor="middle" class="node-copy">pacienteService.js</text>
+    <text x="313" y="296" text-anchor="middle" class="node-copy">GET · POST</text>
+
+    <rect x="430" y="207" width="140" height="142" rx="14" fill="#fff" stroke="#b8d4ec" stroke-width="2"/>
+    <text x="500" y="245" text-anchor="middle" class="node-title">Rutas</text>
+    <text x="500" y="274" text-anchor="middle" class="node-copy">pacienteRoutes.js</text>
+    <text x="500" y="296" text-anchor="middle" class="node-copy">/api/pacientes</text>
+
+    <rect x="600" y="207" width="140" height="142" rx="14" fill="#fff" stroke="#b8d4ec" stroke-width="2"/>
+    <text x="670" y="245" text-anchor="middle" class="node-title">Controladores</text>
+    <text x="670" y="284" text-anchor="middle" class="node-copy">pacienteController.js</text>
+
+    <rect x="770" y="207" width="140" height="142" rx="14" fill="#fff" stroke="#b8d4ec" stroke-width="2"/>
+    <text x="840" y="245" text-anchor="middle" class="node-title">Servicios</text>
+    <text x="840" y="274" text-anchor="middle" class="node-copy">pacienteService.js</text>
+    <text x="840" y="302" text-anchor="middle" class="node-copy">validación y reglas</text>
+
+    <rect x="940" y="207" width="140" height="142" rx="14" fill="#fff" stroke="#b8d4ec" stroke-width="2"/>
+    <text x="1010" y="245" text-anchor="middle" class="node-title">Repositorios</text>
+    <text x="1010" y="284" text-anchor="middle" class="node-copy">pacienteRepository.js</text>
+
+    <rect x="1135" y="207" width="235" height="142" rx="14" fill="#fff" stroke="#b8d4ec" stroke-width="2"/>
+    <ellipse cx="1252" cy="260" rx="48" ry="14" fill="#e8e0f4" stroke="#8d72b6" stroke-width="2"/>
+    <path d="M1204 260v37c0 8 22 14 48 14s48-6 48-14v-37" fill="#e8e0f4" stroke="#8d72b6" stroke-width="2"/>
+    <path d="M1204 278c0 8 22 14 48 14s48-6 48-14" fill="none" stroke="#8d72b6" stroke-width="2"/>
+    <text x="1252" y="337" text-anchor="middle" class="node-title">Datos en memoria</text>
+  </g>
+
+  <g fill="none" stroke="#7351a6" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M198 278h34"/>
+    <path d="M388 278h38"/>
+    <path d="M570 278h26"/>
+    <path d="M740 278h26"/>
+    <path d="M910 278h26"/>
+    <path d="M1080 278h47"/>
+  </g>
+  <text x="408" y="194" text-anchor="middle" class="edge-label">HTTP + JSON</text>
+  <text x="113" y="388" text-anchor="middle" class="edge-label">eventos y props</text>
+
+  <rect x="48" y="478" width="1322" height="64" rx="12" fill="#fff" stroke="#e2ddec"/>
+  <text x="72" y="505" class="note">Persistencia:</text>
+  <text x="158" y="505" class="note">el repositorio conserva los registros solo mientras la API está activa; no se utiliza SQL ni archivo JSON.</text>
+  <text x="72" y="526" class="note">Al reiniciar el servidor, los datos vuelven a los registros iniciales de ejemplo.</text>
+</svg>

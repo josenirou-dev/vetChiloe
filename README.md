@@ -32,7 +32,9 @@ El proyecto sigue una arquitectura modular basada en componentes
 
 ```text
 vetChiloe/
-├── docs/                       # Documentación adicional del proyecto
+├── docs/
+│   ├── diagrama-capas-vetchiloe.svg  # Diagrama de arquitectura
+│   └── diagrama-capas-vetchiloe.mmd  # Fuente editable de Mermaid
 ├── public/                     # Archivos estáticos públicos
 ├── src/
 │   ├── assets/                 # Imágenes, iconos y recursos multimedia
@@ -74,23 +76,9 @@ vetChiloe/
 
 La API intercambia datos JSON y utiliza almacenamiento en memoria; no requiere una base de datos SQL en esta etapa.
 
-```mermaid
-flowchart LR
-  subgraph Frontend
-    UI[Componentes React]
-    Client[Servicio de pacientes]
-    UI -->|props y acciones| Client
-  end
+![Diagrama de capas de vetChiloé](./docs/diagrama-capas-vetchiloe.svg)
 
-  Client -->|HTTP JSON| Routes[Rutas Express]
-
-  subgraph Backend
-    Routes --> Controllers[Controladores]
-    Controllers --> Services[Servicios y reglas de negocio]
-    Services --> Repositories[Repositorios]
-    Repositories --> Memory[(Datos en memoria)]
-  end
-```
+Fuente editable: [diagrama-capas-vetchiloe.mmd](./docs/diagrama-capas-vetchiloe.mmd).
 
 ## 👥 Flujo de Trabajo Colaborativo (Para Estudiantes)
 Este proyecto utiliza la metodología Feature Branch Workflow. Está estrictamente prohibido hacer commits directos a la rama `main`.
