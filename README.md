@@ -33,11 +33,11 @@ El proyecto sigue una arquitectura modular basada en componentes
 ```text
 vetChiloe/
 ├── docs/
-│   ├── diagrama-capas-vetchiloe.svg  # Diagrama de arquitectura
 │   └── diagrama-capas-vetchiloe.mmd  # Fuente editable de Mermaid
 ├── public/                     # Archivos estáticos públicos
 ├── src/
-│   ├── assets/                 # Imágenes, iconos y recursos multimedia
+│   ├── assets/                 # Imágenes, diagramas y recursos multimedia
+│   │   └── diagrama-capas-vetchiloe.svg
 │   ├── components/             # Componentes modulares de React
 │   │   ├── FichaClinica.css
 │   │   ├── FichaClinica.jsx        # Vista de detalle (Carnet clínico)
@@ -76,7 +76,7 @@ vetChiloe/
 
 La API intercambia datos JSON y utiliza almacenamiento en memoria; no requiere una base de datos SQL en esta etapa.
 
-![Diagrama de capas de vetChiloé](./docs/diagrama-capas-vetchiloe.svg)
+![Diagrama de capas de vetChiloé](./src/assets/diagrama-capas-vetchiloe.svg)
 
 Fuente editable: [diagrama-capas-vetchiloe.mmd](./docs/diagrama-capas-vetchiloe.mmd).
 

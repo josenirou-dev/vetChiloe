@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 590" role="img" aria-labelledby="title description">
-  <title id="title">Arquitectura en capas de vetChiloé</title>
+  <title id="title">Diagrama de capas de vetChiloé</title>
   <desc id="description">Los componentes React llaman al servicio HTTP del frontend. Este se comunica con las rutas Express, que delegan en controladores, servicios y repositorios. Los datos se almacenan en memoria.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
