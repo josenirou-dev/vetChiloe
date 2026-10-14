@@ -81,8 +81,7 @@ La API intercambia datos JSON y utiliza almacenamiento en memoria; no requiere u
 Fuente editable: [diagrama-capas-vetchiloe.mmd](./docs/diagrama-capas-vetchiloe.mmd).
 
 ## 👥 Flujo de Trabajo Colaborativo (Para Estudiantes)
-Este proyecto utiliza la metodología Feature Branch Workflow. Está estrictamente prohibido hacer commits directos a la rama `main`.
-Cada estudiante debe clonar el repositorio y crear su propia rama de trabajo utilizando la nomenclatura: `estudiante/nombre-apellido`. Las integraciones se evaluarán mediante *Pull Requests*.
+El flujo general de colaboración utiliza Feature Branch Workflow y Pull Requests para proponer cambios al repositorio base. Para esta entrega individual, siguiendo la indicación del profesor en clases, el trabajo se entrega en la rama `main` del fork personal. Los commits descriptivos de cada capa se conservan en el historial de esa rama.
 
 ## ⚙️ Requisitos Previos
 - Node.js (incluye npm) instalado en tu computadora local.
@@ -92,7 +91,7 @@ Cada estudiante debe clonar el repositorio y crear su propia rama de trabajo uti
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/Vikktor93/vetChiloe
+git clone https://github.com/josenirou-dev/vetChiloe
 ```
 
 2. Accede al directorio del proyecto:
@@ -121,13 +120,13 @@ npm run dev
 
 La interfaz usa el proxy de Vite para comunicarse con `http://localhost:3000`. La API expone `GET /api/pacientes` para listar pacientes y `POST /api/pacientes` para registrar uno. Al registrar, el servicio valida que la especie sea Felino o Canino y genera el número de atención. Los datos se conservan solo mientras el servidor está activo. El servidor acepta fotos de hasta 5 MB enviadas como JSON.
 
-Para publicar una rama en el repositorio del curso cuando `upstream` apunta al repositorio del docente:
+Para entregar esta actividad en el `main` del fork personal:
 ```bash
-git switch -c estudiante/nombre-apellido
-git push -u upstream estudiante/nombre-apellido
+git switch main
+git push origin main
 ```
 
-La entrega se comprueba mediante commits descriptivos por capa, el diagrama en este README y la demostración del listado desde la API y el registro de un paciente desde el formulario.
+La entrega incluye commits descriptivos por capa en el historial de `main`, el diagrama de arquitectura mostrado arriba y una demostración donde la tabla carga pacientes desde la API y el formulario registra uno nuevo.
 
 ## 🗺️ Roadmap del Proyecto
 - [x] Fase 1: Configuración inicial ([Vite](https://vite.dev/)) y componentización estática.
