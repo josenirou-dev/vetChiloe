@@ -1,34 +1,23 @@
-# Sistema de Información: vetChiloé
+# vetChiloé
 
-Una aplicación web moderna y responsiva diseñada para gestionar y realizar el seguimiento de los datos de pacientes en clínicas veterinarias. Este proyecto sirve como base educativa para construir interfaces web escalables utilizando el ecosistema moderno de JavaScript, utilizando React.
+Sistema web para consultar y registrar pacientes de una clínica veterinaria. El frontend está hecho con React y Vite.
 
-Este proyecto se enmarca dentro de la asignatura de **Tecnologías Web y Móviles** de 6to Semestre en la carrera de **Ingeniería Civil en Informática**, de la **Universidad de Los Lagos**.
+Este proyecto se desarrolla para la asignatura Tecnologías Web y Móviles de Ingeniería Civil en Informática, Universidad de Los Lagos.
 
-## 🎯 Propósito del Sistema
-El propósito principal de este repositorio es pedagógico. Busca enseñar a los estudiantes de ingeniería la arquitectura web basada en componentes, el manejo unidireccional del estado, y la implementación de interfaces de usuario (UI) y experiencias de usuario (UX) de alto nivel, transitando progresivamente hacia un sistema *Full-Stack*.
+## Tecnologías
 
-## 🚀 Stack Tecnológico
+El frontend usa React, Vite y CSS. El backend usa Node.js y Express. La API intercambia datos en formato JSON. Los pacientes se guardan en memoria mientras el servidor está activo; no se usa una base de datos SQL ni un archivo JSON.
 
-**Frontend (Fase Actual):**
-* **Librería Core:** [React](https://es.react.dev/) + [Vite](https://vite.dev/)
-* **Estilos:** CSS3 Nativo (Arquitectura de Co-ubicación)
-* **Animaciones:** [Framer Motion](https://motion.dev/) (para interacciones 3D nativas)
+## Funciones
 
-**Backend & Datos:**
-* **Entorno de Ejecución:** [Node.js](https://nodejs.org/en)
-* **Framework:** [Express.js](https://expressjs.com/)
-* **API:** REST; intercambia datos en formato JSON.
-* **Almacenamiento actual:** En memoria; PostgreSQL queda para una etapa posterior.
+- Listado y búsqueda de pacientes.
+- Registro y edición de pacientes y sus dueños.
+- Ficha clínica de cada paciente.
+- Tema claro y oscuro.
 
-## ✨ Funcionalidades Principales (UI/UX)
-* **Dashboard Interactivo:** Vista principal con una tabla de datos estructurada y responsiva para el escaneo rápido de pacientes registrados.
-* **Gestión de Ingresos:** Formulario controlado superpuesto (Modal) accionado por un Botón Flotante para registrar nuevas mascotas.
-* **Carnet Clínico Digital:** Sistema de tarjetas interactivas en 3D (Flip-Card) que permite visualizar la fotografía y datos del paciente en el anverso, y su historial clínico, así como su diagnóstico en el reverso.
-* **Renderizado Condicional:** Navegación fluida entre la tabla general y los expedientes individuales sin recargar la página (Single Page Application).
+## Estructura del proyecto
 
-
-## 📁 Estructura del Proyecto
-El proyecto sigue una arquitectura modular basada en componentes
+El frontend está organizado en componentes. El backend separa rutas, controladores, servicios y repositorio.
 
 ```text
 vetChiloe/
@@ -72,63 +61,58 @@ vetChiloe/
 └── vite.config.js              # Configuración del empaquetador de Vite
 ```
 
-### Diagrama de capas
+## Diagrama de capas
 
-La API intercambia datos JSON y utiliza almacenamiento en memoria; no requiere una base de datos SQL en esta etapa.
+El diagrama muestra el recorrido de una solicitud desde React hasta el repositorio del backend.
 
 ![Diagrama de capas de vetChiloé](./src/assets/diagrama-capas-vetchiloe.svg)
 
 Fuente editable: [diagrama-capas-vetchiloe.mmd](./docs/diagrama-capas-vetchiloe.mmd).
 
-## 👥 Flujo de Trabajo Colaborativo (Para Estudiantes)
-El flujo general de colaboración utiliza Feature Branch Workflow y Pull Requests para proponer cambios al repositorio base. Para esta entrega individual, siguiendo la indicación del profesor en clases, el trabajo se entrega en la rama `main` del fork personal. Los commits descriptivos de cada capa se conservan en el historial de esa rama.
+## Trabajo y entrega
 
-## ⚙️ Requisitos Previos
-- Node.js (incluye npm) instalado en tu computadora local.
-- Git instalado en tu entorno de desarrollo.
+Para colaborar en el proyecto se pueden usar ramas y Pull Requests. Para esta entrega, según lo indicado en clases, se usa la rama `main` del fork personal. El historial de `main` conserva los commits descriptivos de cada capa.
 
-## 🛠️ Instalación y Configuración
-1. Clona el repositorio:
+## Requisitos
+
+Se necesita Node.js y npm.
+
+## Instalación y ejecución
+
+Clona el fork e instala las dependencias del frontend:
 
 ```bash
 git clone https://github.com/josenirou-dev/vetChiloe
-```
-
-2. Accede al directorio del proyecto:
-
-```bash
 cd vetChiloe
-```
-
-3. Instala las dependencias necesarias:
-
-```bash
 npm install
 ```
 
-4. Levanta el servidor de desarrollo:
+En una terminal, inicia el frontend:
+
 ```bash
 npm run dev
 ```
 
-5. En otra terminal, inicia la API:
+En otra terminal, instala las dependencias del backend e inicia la API:
+
 ```bash
 cd server
 npm install
 npm run dev
 ```
 
-La interfaz usa el proxy de Vite para comunicarse con `http://localhost:3000`. La API expone `GET /api/pacientes` para listar pacientes y `POST /api/pacientes` para registrar uno. Al registrar, el servicio valida que la especie sea Felino o Canino y genera el número de atención. Los datos se conservan solo mientras el servidor está activo. El servidor acepta fotos de hasta 5 MB enviadas como JSON.
+Vite comunica la interfaz con la API en `http://localhost:3000`. `GET /api/pacientes` devuelve el listado y `POST /api/pacientes` registra un paciente. El servicio valida que la especie sea Felino o Canino y genera el número de atención. Los registros se pierden al reiniciar el servidor. El formulario admite fotos de hasta 5 MB enviadas como JSON.
 
-Para entregar esta actividad en el `main` del fork personal:
+Para subir los commits al `main` del fork:
+
 ```bash
 git switch main
 git push origin main
 ```
 
-La entrega incluye commits descriptivos por capa en el historial de `main`, el diagrama de arquitectura mostrado arriba y una demostración donde la tabla carga pacientes desde la API y el formulario registra uno nuevo.
+La demostración consiste en comprobar que la tabla carga pacientes desde la API y que el formulario registra uno nuevo.
 
-## 🗺️ Roadmap del Proyecto
+## Avance
 - [x] Fase 1: Configuración inicial ([Vite](https://vite.dev/)) y componentización estática.
 - [x] Fase 2: Integración de bibliotecas ( [Framer Motion](https://motion.dev/)) e interacciones 3D.
 - [x] Fase 3: Levantamiento de estado, formularios controlados y renderizado de tablas.
@@ -136,7 +120,6 @@ La entrega incluye commits descriptivos por capa en el historial de `main`, el d
 - [x] Fase 5: Desarrollo de API RESTful en capas con [Node.js](https://nodejs.org/en) y [Express.js](https://expressjs.com/), con datos en memoria.
 - [ ] Fase 6: Modelado y conexión a base de datos relacional ([PostgreSQL](https://www.postgresql.org/)).
 
-## 📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+## Licencia
 
-Nota: Al ser una licencia MIT, los estudiantes son libres de utilizar, modificar y distribuir este código como base para sus futuros proyectos personales o portafolios profesionales.
+Este proyecto usa la licencia MIT. Ver [LICENSE](LICENSE).
